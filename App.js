@@ -15,7 +15,16 @@ import firebaseInfo from './Firebase/firebase'
 import { doc, getDoc, getFirestore, initializeFirestore } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 
-initializeApp;
+initializeApp({
+  apiKey: "AIzaSyAod8iXmI1vB94RFNyfs2RJh4hNivQXV9U",
+  authDomain: "beewell-55d9d.firebaseapp.com",
+  projectId: "beewell-55d9d",
+  storageBucket: "beewell-55d9d.appspot.com",
+  messagingSenderId: "49568944671",
+  appId: "1:49568944671:web:379b0295b56970b2a97b2a",
+  measurementId: "G-WRE2EGJ8KQ"
+});
+
 const firestore = getFirestore();
 const specialOfTodayDay = doc(firestore, 'account code generated/20230101')
 const specialOfTheDay = doc(firestore, 'Test/Doc1')
@@ -53,6 +62,7 @@ const Tabs = () => {
         component={StatisticsScreen}
         options={{
           tabBarLabel: 'Statistics',
+
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="chart-pie" color={color} size={size} />
           ),
@@ -98,14 +108,17 @@ export function StackNavigator() {
         <Stack.Screen 
           name="Login" 
           component={LoginScreen}
+          options={{ title: 'BeeWell' }}
         />
         <Stack.Screen 
           name="CreateAccount" 
           component={CreateAccountScreen}
+          options={{ title: 'BeeWell' }}
         />
         <Stack.Screen 
-          name="LogEntry" 
+          name="Tabs"
           component={Tabs}
+          options={{ title: 'Logout' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -119,3 +132,4 @@ export default function App() {
 }
 
 //What about getting the current route and set it so that recompiling wouldnt bring you back to login, but you wouldnt recompile during use so that wouldnt make sense
+
